@@ -24,12 +24,6 @@ namespace XFStarter.Mobile.Core.Logging
         void WriteLog(LogLevel logLevel, string message, [CallerMemberName] string memberName = "");
 
         /// <summary>
-        /// Set logger for the caller class name
-        /// </summary>
-        /// <param name="memberName">The caller name</param>
-        ILogger ForThisClass([CallerMemberName] string memberName = "");
-
-        /// <summary>
         /// Write a log entry
         /// </summary>
         /// <param name="logLevel">The level of the log entry.</param>

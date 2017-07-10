@@ -20,12 +20,6 @@ namespace XFStarter.Mobile.Core.Logging
             Name = name;
         }
 
-        public ILogger ForThisClass([CallerMemberName] string memberName = "")
-        {
-            Name = memberName;
-            return this;
-        }
-
         public void WriteLog(LogLevel logLevel, string message, [CallerMemberName] string memberName = "")
         {
             if(logLevel == LogLevel.Off)

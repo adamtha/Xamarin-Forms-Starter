@@ -24,17 +24,6 @@ namespace XFStarter.Mobile.Core.iOS.Logging
             Name = name;
         }
 
-        public ILogger ForThisClass([CallerMemberName] string memberName = "")
-        {
-            Name = memberName;
-            return this;
-        }
-
-        public static ILogger CreateLogger<T>()
-        {
-            return new Logger(typeof(T).Name);
-        }
-
         public void WriteLog(LogLevel logLevel, string message, [CallerMemberName] string memberName = "")
         {
             Console.WriteLine($"{logLevel}|{memberName}|{message}");
