@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XFStarter.Mobile.Core", "XFStarter.Mobile.Core\XFStarter.Mobile.Core.csproj", "{67F9D3A8-F71E-4428-913F-C37AE82CDB24}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XFStarter.Mobile.Core.Version", "XFStarter.Mobile.Core.Version", "{D9C3A9EE-B6C4-450E-88CC-CEDD01E2B82A}"
+	ProjectSection(SolutionItems) = preProject
+		..\README.md = ..\README.md
+		XFStarter.Mobile.Core.Version\VersionInfo.cs = XFStarter.Mobile.Core.Version\VersionInfo.cs
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XFStarter.Mobile.Core.Android", "XFStarter.Mobile.Core.Android\XFStarter.Mobile.Core.Android.csproj", "{41011F94-F2C7-498A-8753-65BE40831057}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XFStarter.Mobile.Core.iOS", "XFStarter.Mobile.Core.iOS\XFStarter.Mobile.Core.iOS.csproj", "{C9321FF4-1735-46B2-9041-E3E534DFF198}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67F9D3A8-F71E-4428-913F-C37AE82CDB24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67F9D3A8-F71E-4428-913F-C37AE82CDB24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67F9D3A8-F71E-4428-913F-C37AE82CDB24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67F9D3A8-F71E-4428-913F-C37AE82CDB24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41011F94-F2C7-498A-8753-65BE40831057}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41011F94-F2C7-498A-8753-65BE40831057}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41011F94-F2C7-498A-8753-65BE40831057}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41011F94-F2C7-498A-8753-65BE40831057}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9321FF4-1735-46B2-9041-E3E534DFF198}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9321FF4-1735-46B2-9041-E3E534DFF198}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9321FF4-1735-46B2-9041-E3E534DFF198}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9321FF4-1735-46B2-9041-E3E534DFF198}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
