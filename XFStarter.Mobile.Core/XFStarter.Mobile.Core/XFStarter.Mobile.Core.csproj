@@ -42,7 +42,11 @@
     <Compile Include="..\XFStarter.Mobile.Core.Version\VersionInfo.cs">
       <Link>Properties\VersionInfo.cs</Link>
     </Compile>
+    <Compile Include="Behaviors\BehaviorBase.cs" />
+    <Compile Include="Behaviors\EventToCommandBehavior.cs" />
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Converters\InverseBoolConverter.cs" />
+    <Compile Include="Converters\ItemTappedEventArgsConverter.cs" />
     <Compile Include="Helpers\AnalyticsKeys.cs" />
     <Compile Include="Helpers\DebugSettings.cs" />
     <Compile Include="Helpers\Settings.cs" />
