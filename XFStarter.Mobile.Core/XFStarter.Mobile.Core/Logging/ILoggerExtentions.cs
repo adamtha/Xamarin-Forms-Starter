@@ -28,6 +28,11 @@ namespace XFStarter.Mobile.Core.Logging
             {
                 const int MaxPropertyLength = 64;
 
+                if(ex is AggregateException)
+                {
+                    ex = (ex as AggregateException).Flatten();
+                }
+
                 var stack = ex.StackTrace;
                 if(stack.Length > MaxPropertyLength)
                 {

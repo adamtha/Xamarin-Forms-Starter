@@ -12,6 +12,8 @@ using Android.Widget;
 using static Android.Provider.Settings;
 using XFStarter.Mobile.Core.Services;
 using XFStarter.Mobile.Core.Android.Services;
+using System.Security.Cryptography;
+using XFStarter.Mobile.Core.Helpers;
 
 [assembly: Xamarin.Forms.Dependency(typeof(DeviceInfo))]
 
@@ -26,5 +28,17 @@ namespace XFStarter.Mobile.Core.Android.Services
         public string Version => Build.VERSION.Release;
 
         public Platform Platform => Platform.Android;
+
+        public byte[] HashedId
+        {
+            get
+            {
+                using(var sha384 = new SHA384CryptoServiceProvider())
+                {
+                    var bytes = ByteStringHelper.FromHexString(Id);
+                    return sha384.ComputeHash(bytes);
+                }
+            }
+        }
     }
 }

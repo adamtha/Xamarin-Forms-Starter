@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using AndroidHUD;
 using Xamarin.Forms;
 using XFStarter.Mobile.Core.Android.Services;
 using XFStarter.Mobile.Core.Services;
@@ -17,8 +18,40 @@ using XFStarter.Mobile.Core.Services;
 
 namespace XFStarter.Mobile.Core.Android.Services
 {
+    static class ToastMaskTypeExtentions
+    {
+        public static AndroidHUD.MaskType ToProgressHUDMaskType(this ToastMaskType maskType)
+        {
+            switch(maskType)
+            {
+                case ToastMaskType.Clear: return MaskType.Clear;
+                case ToastMaskType.Black: return MaskType.Black;
+                case ToastMaskType.Gradient: return MaskType.Black;
+                case ToastMaskType.None:
+                default: return MaskType.None;
+            }
+        }
+    }
+
     public class ToastNotifier : IToastNotifier
     {
+        public static Context Context { get; set; }
+
+        public void Show(string status = null, float progress = -1F, ToastMaskType maskType = ToastMaskType.Clear)
+        {
+            AndHUD.Shared.Show(Context, status, -1, MaskType.Clear);
+        }
+
+        public void ShowSuccessWithStatus(string status, double millisecondsDelay = 1000)
+        {
+            AndHUD.Shared.ShowSuccess(Context, status, MaskType.Clear, TimeSpan.FromMilliseconds(millisecondsDelay));
+        }
+
+        public void ShowErrorWithStatus(string status, double millisecondsDelay = 1000)
+        {
+            AndHUD.Shared.ShowError(Context, status, MaskType.Clear, TimeSpan.FromMilliseconds(millisecondsDelay));
+        }
+
         public Task<bool> Notify(ToastNotificationType type, string title, string description, int millisecondsDelay = 500)
         {
             var taskCompletionSource = new TaskCompletionSource<bool>();

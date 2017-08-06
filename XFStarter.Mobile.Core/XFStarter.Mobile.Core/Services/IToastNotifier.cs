@@ -7,9 +7,12 @@ using Xamarin.Forms;
 
 namespace XFStarter.Mobile.Core.Services
 {
-    public interface IToastNotifier
+    public enum ToastMaskType
     {
-        Task<bool> Notify(ToastNotificationType type, string title, string description, int millisecondsDelay = 500);
+        None = 1,
+        Clear,
+        Black,
+        Gradient
     }
 
     public enum ToastNotificationType
@@ -18,6 +21,17 @@ namespace XFStarter.Mobile.Core.Services
         Success,
         Error,
         Warning,
+    }
+
+    public interface IToastNotifier
+    {
+        void Show(string status = null, float progress = -1, ToastMaskType maskType = ToastMaskType.None);
+
+        void ShowSuccessWithStatus(string status, double timeoutMs = 1000);
+
+        void ShowErrorWithStatus(string status, double timeoutMs = 1000);
+
+        Task<bool> Notify(ToastNotificationType type, string title, string description, int millisecondsDelay = 500);
     }
 
     public static class IToastNotifierExtentions
