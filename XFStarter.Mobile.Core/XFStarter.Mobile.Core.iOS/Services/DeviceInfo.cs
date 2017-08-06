@@ -17,7 +17,7 @@ namespace XFStarter.Mobile.Core.iOS.Services
 {
     public class DeviceInfo : IDeviceInfo
     {
-        public string Id => UIDevice.CurrentDevice.IdentifierForVendor.AsString();
+        public string Id => UIDevice.CurrentDevice.IdentifierForVendor.AsString().Replace("-", string.Empty);
 
         public string Model => UIDevice.CurrentDevice.Model;
 
