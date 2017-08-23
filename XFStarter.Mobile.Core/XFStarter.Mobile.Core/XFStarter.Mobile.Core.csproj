@@ -52,6 +52,9 @@
     <Compile Include="Helpers\AnalyticsKeys.cs" />
     <Compile Include="Helpers\ByteStringHelper.cs" />
     <Compile Include="Helpers\DebugSettings.cs" />
+    <Compile Include="Helpers\FixedSizedQueue.cs" />
+    <Compile Include="Helpers\LogsCacheHelper.cs" />
+    <Compile Include="Helpers\ObservableRangeCollection.cs" />
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Logging\DebugLogger.cs" />
     <Compile Include="Logging\LoggerFactory.cs" />

@@ -28,16 +28,19 @@ namespace XFStarter.Mobile.Core.Logging
             }
 
             System.Diagnostics.Debug.WriteLine($"{DateTime.Now}|{logLevel}|{memberName}|{message}");
+            this.CacheLog(logLevel, message, memberName);
         }
 
         public void WriteLog(LogLevel logLevel, string format, [CallerMemberName] string memberName = "", params object[] args)
         {
             WriteLog(logLevel, string.Format(format, args), memberName);
+            this.CacheLog(logLevel, string.Format(format, args), memberName);
         }
 
         public void WriteLog(LogLevel logLevel, Exception ex, string message = "", [CallerMemberName] string memberName = "")
         {
             WriteLog(logLevel, $"{message}|{ex}", memberName);
+            this.CacheLog(logLevel, message, memberName, ex);
         }
     }
 }

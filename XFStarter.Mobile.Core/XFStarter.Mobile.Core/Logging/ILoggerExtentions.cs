@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using XFStarter.Mobile.Core.Helpers;
 
 namespace XFStarter.Mobile.Core.Logging
 {
@@ -53,6 +54,30 @@ namespace XFStarter.Mobile.Core.Logging
             catch
             {
             }
+        }
+
+        public static void CacheLog(this ILogger logger, LogLevel logLevel, string message, string methodName = "", Exception ex = null)
+        {
+            if(string.IsNullOrEmpty(message))
+            {
+                // no point in storing empty messages
+                return;
+            }
+
+            if(ex is AggregateException)
+            {
+                ex = (ex as AggregateException).Flatten();
+            }
+
+            var logItem = new LogItem
+            {
+                Name = logger.Name,
+                Method = methodName,
+                Level = logLevel,
+                Message = message,
+                Error = ex
+            };
+            LogsCacheHelper.AddLog(logItem);
         }
 
         public static void Debug(this ILogger logger, string format, [CallerMemberName] string memberName = "", params object[] args)

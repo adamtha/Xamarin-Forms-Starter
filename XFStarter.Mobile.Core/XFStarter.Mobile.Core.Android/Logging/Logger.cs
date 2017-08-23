@@ -50,6 +50,8 @@ namespace XFStarter.Mobile.Core.Android.Logging
                     Log.Wtf(memberName, message);
                     break;
             }
+
+            this.CacheLog(logLevel, message, memberName);
         }
 
         public void WriteLog(LogLevel logLevel, string format, [CallerMemberName] string memberName = "", params object[] args)
@@ -73,6 +75,8 @@ namespace XFStarter.Mobile.Core.Android.Logging
                     Log.Wtf(memberName, format, args);
                     break;
             }
+
+            this.CacheLog(logLevel, string.Format(format, args), memberName);
         }
 
         public void WriteLog(LogLevel logLevel, Exception ex, string message = "", [CallerMemberName] string memberName = "")
@@ -99,6 +103,8 @@ namespace XFStarter.Mobile.Core.Android.Logging
                     this.TrackAnalytics(ex, memberName);
                     break;
             }
+
+            this.CacheLog(logLevel, message, memberName, ex);
         }
     }
 }
