@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace XFStarter.Mobile.Core.Behaviors
 {
-    public class EventToCommandBehavior : BehaviorBase<View>
+    public class EventToCommandBehavior : BehaviorBase<VisualElement>
     {
         Delegate eventHandler;
 
@@ -38,13 +38,13 @@ namespace XFStarter.Mobile.Core.Behaviors
             set { SetValue(InputConverterProperty, value); }
         }
 
-        protected override void OnAttachedTo(View bindable)
+        protected override void OnAttachedTo(VisualElement bindable)
         {
             base.OnAttachedTo(bindable);
             RegisterEvent(EventName);
         }
 
-        protected override void OnDetachingFrom(View bindable)
+        protected override void OnDetachingFrom(VisualElement bindable)
         {
             DeregisterEvent(EventName);
             base.OnDetachingFrom(bindable);

@@ -8,6 +8,26 @@ namespace XFStarter.Mobile.Core.Helpers
 {
     public class ByteStringHelper
     {
+        public static byte[] ToAsciiBytes(string s)
+        {
+            //return Encoding.UTF8.GetBytes(s);
+
+            var retval = new byte[s.Length];
+            for(int i = 0; i < s.Length; ++i)
+            {
+                var ch = s[i];
+                if(ch <= 0x7f)
+                {
+                    retval[i] = (byte)ch;
+                }
+                else
+                {
+                    retval[i] = (byte)'?';
+                }
+            }
+            return retval;
+        }
+
         public static byte[] FromHexString(string hex)
         {
             int NumberChars = hex.Length;

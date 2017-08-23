@@ -46,6 +46,7 @@ namespace XFStarter.Mobile.Core.Services
             {
                 return null;
             }
+
             return await navigation.PopAsync(animated);
         }
 
@@ -55,8 +56,8 @@ namespace XFStarter.Mobile.Core.Services
             {
                 return null;
             }
-            return await navigation.PopModalAsync(animated);
 
+            return await navigation.PopModalAsync(animated);
         }
 
         public Task PopToRootAsync(bool animated = false)
@@ -66,6 +67,11 @@ namespace XFStarter.Mobile.Core.Services
 
         public void RemovePage(Page page)
         {
+            if(!navigation.NavigationStack.Contains(page))
+            {
+                return;
+            }
+
             navigation.RemovePage(page);
         }
     }
