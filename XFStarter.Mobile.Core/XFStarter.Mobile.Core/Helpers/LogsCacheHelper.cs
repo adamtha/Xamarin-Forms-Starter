@@ -9,8 +9,8 @@ namespace XFStarter.Mobile.Core.Helpers
 {
     public class LogItem
     {
-        private Guid Id => Guid.NewGuid();
-        public DateTime Date => DateTime.UtcNow;
+        private Guid Id { get; } = Guid.NewGuid();
+        public DateTime Date { get; } = DateTime.UtcNow;
         public LogLevel Level { get; set; } = LogLevel.Off;
         public string Name { get; set; }
         public string Method { get; set; }
@@ -29,22 +29,29 @@ namespace XFStarter.Mobile.Core.Helpers
 
         public override string ToString()
         {
-            return $"{Date}|{Name}|{Method}|{Level}|{Message}|{Error}".Trim('|');
+            return $"{Date:O}|{Name}|{Method}|{Level}|{Message}|{Error}".Trim('|');
         }
     }
 
     public static class LogsCacheHelper
     {
         private static FixedSizedQueue<LogItem> LogsQueue { get; } = new FixedSizedQueue<LogItem>(1000);
+        private static readonly object syncObject = new object();
 
         public static void AddLog(LogItem item)
         {
-            LogsQueue.Enqueue(item);
+            lock(syncObject)
+            {
+                LogsQueue.Enqueue(item);
+            }
         }
 
-        public static IEnumerable<LogItem> GetLogs(int count = 1000)
+        public static IList<LogItem> GetLogs(int count = 1000)
         {
-            return LogsQueue.Take(count);
+            lock(syncObject)
+            {
+                return LogsQueue.Take(count).ToArray();
+            }
         }
     }
 }
