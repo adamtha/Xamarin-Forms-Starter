@@ -30,7 +30,6 @@ namespace XFStarter.Mobile.Core.Helpers
 
         #endregion
 
-
         public static string GeneralSettings
         {
             get
@@ -42,5 +41,16 @@ namespace XFStarter.Mobile.Core.Helpers
                 AppSettings.AddOrUpdateValue(SettingsKey, value);
             }
         }
+
+        #region CurrentCulture
+        private const string CurrentCultureKey = nameof(CurrentCultureKey);
+        private static readonly string CurrentCultureDefault = "en-US";
+
+        public static string CurrentCulture
+        {
+            get { return AppSettings.GetValueOrDefault(CurrentCultureKey, CurrentCultureDefault); }
+            set { AppSettings.AddOrUpdateValue(CurrentCultureKey, value); }
+        }
+        #endregion
     }
 }

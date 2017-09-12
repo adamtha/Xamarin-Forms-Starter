@@ -18,5 +18,12 @@ namespace XFStarter.Mobile.Core.Helpers
             public static string Sleep => $"{prefix} {nameof(Sleep)}";
             public static string Resume => $"{prefix} {nameof(Resume)}";
         }
+
+        public class Culture
+        {
+            static string prefix = $"{nameof(Culture)}";
+
+            public static string Updated { get; } = $"{prefix} {nameof(Updated)}";
+        }
     }
 }

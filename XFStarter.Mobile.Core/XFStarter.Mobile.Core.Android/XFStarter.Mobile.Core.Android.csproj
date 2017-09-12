@@ -152,6 +152,7 @@
     <Compile Include="Services\AndHUD.cs" />
     <Compile Include="Services\DeviceInfo.cs" />
     <Compile Include="Logging\Logger.cs" />
+    <Compile Include="Services\LocaleService.cs" />
     <Compile Include="Services\ProgressWheel.cs" />
     <Compile Include="Services\ToastNotifier.cs" />
     <Compile Include="Services\Vibrate.cs" />

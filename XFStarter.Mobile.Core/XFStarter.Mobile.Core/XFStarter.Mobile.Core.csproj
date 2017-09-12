@@ -42,11 +42,15 @@
     <Compile Include="..\XFStarter.Mobile.Core.Version\VersionInfo.cs">
       <Link>Properties\VersionInfo.cs</Link>
     </Compile>
+    <Compile Include="Converters\LocalizationConverter.cs" />
+    <Compile Include="Services\ILocaleService.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="Behaviors\BehaviorBase.cs" />
     <Compile Include="Behaviors\EntryLengthValidatorBehavior.cs" />
     <Compile Include="Behaviors\EntryNumericValidationBehavior.cs" />
     <Compile Include="Behaviors\EventToCommandBehavior.cs" />
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Converters\IConvertibleConverter.cs" />
     <Compile Include="Converters\InverseBoolConverter.cs" />
     <Compile Include="Converters\ItemTappedEventArgsConverter.cs" />
     <Compile Include="Helpers\AnalyticsKeys.cs" />
@@ -54,8 +58,15 @@
     <Compile Include="Helpers\DebugSettings.cs" />
     <Compile Include="Helpers\FixedSizedQueue.cs" />
     <Compile Include="Helpers\LogsCacheHelper.cs" />
+    <Compile Include="Helpers\ObservableCollectionExtentions.cs" />
     <Compile Include="Helpers\ObservableRangeCollection.cs" />
     <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="Helpers\WeakEventManager.cs" />
+    <Compile Include="L10N\CultureChangedEventArg.cs" />
+    <Compile Include="L10N\IResourceLocalizer.cs" />
+    <Compile Include="L10N\LocalizationManager.cs" />
+    <Compile Include="L10N\ResourceLocalizer.cs" />
+    <Compile Include="L10N\TranslateExtension.cs" />
     <Compile Include="Logging\DebugLogger.cs" />
     <Compile Include="Logging\LoggerFactory.cs" />
     <Compile Include="MobileCenterBootstrap.cs" />

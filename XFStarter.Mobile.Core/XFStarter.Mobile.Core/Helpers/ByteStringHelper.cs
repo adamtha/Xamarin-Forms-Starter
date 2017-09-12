@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace XFStarter.Mobile.Core.Helpers
 {
-    public class ByteStringHelper
+    public static class ByteStringHelper
     {
         public static byte[] ToAsciiBytes(string s)
         {
@@ -28,6 +29,16 @@ namespace XFStarter.Mobile.Core.Helpers
             return retval;
         }
 
+        public static string FromAsciiBytes(IEnumerable<byte> data)
+        {
+            var sb = new StringBuilder();
+            foreach(var @byte in data)
+            {
+                sb.Append((char)@byte);
+            }
+            return sb.ToString();
+        }
+
         public static byte[] FromHexString(string hex)
         {
             int NumberChars = hex.Length;
@@ -47,6 +58,32 @@ namespace XFStarter.Mobile.Core.Helpers
         public static string ToHexString(byte[] ba, int length)
         {
             return BitConverter.ToString(ba, 0, length).Replace("-", "");
+        }
+
+        public static IEnumerable<IEnumerable<T>> Partition<T>(this IEnumerable<T> source, int size)
+        {
+            T[] array = null;
+            int count = 0;
+            foreach(T item in source)
+            {
+                if(array == null)
+                {
+                    array = new T[size];
+                }
+                array[count] = item;
+                count++;
+                if(count == size)
+                {
+                    yield return new ReadOnlyCollection<T>(array);
+                    array = null;
+                    count = 0;
+                }
+            }
+            if(array != null)
+            {
+                Array.Resize(ref array, count);
+                yield return new ReadOnlyCollection<T>(array);
+            }
         }
     }
 }
