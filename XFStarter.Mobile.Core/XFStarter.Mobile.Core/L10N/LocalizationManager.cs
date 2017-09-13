@@ -72,6 +72,11 @@ namespace XFStarter.Mobile.Core.L10N
         {
             foreach(var culture in cultures)
             {
+                if(SupportedCultures.Contains(culture))
+                {
+                    continue;
+                }
+
                 //log cultures, this will also force loading the properties for iOS bindings
                 Logger.Debug($"Supported culture added - Name:{culture.Name}, EnglishName:{culture.EnglishName}, DisplayName:{culture.DisplayName}, NativeName:{culture.NativeName}");
                 SupportedCultures.Add(culture);
