@@ -44,6 +44,7 @@
     </Compile>
     <Compile Include="Converters\LocalizationConverter.cs" />
     <Compile Include="Services\ILocaleService.cs" />
+    <Compile Include="UserControls\ColoredTableView.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="Behaviors\BehaviorBase.cs" />
     <Compile Include="Behaviors\EntryLengthValidatorBehavior.cs" />

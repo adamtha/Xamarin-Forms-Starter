@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using XFStarter.Mobile.Core.L10N;
+using XFStarter.Mobile.Core.Logging;
+using XFStarter.Mobile.Core.Services;
 
 namespace XFStarter.Mobile.Core.ViewModels
 {
     public class BaseViewModel : ObservableBase
     {
+        protected ILogger Logger { get; } = LoggerFactory.CreateLogger();
+        protected IDialogService DialogService { get; } = DependencyService.Get<IDialogService>();
+
         protected bool IsActive { get; set; } = false;
 
         private ICommand appearingCommand;
