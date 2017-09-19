@@ -43,6 +43,7 @@
       <Link>Properties\VersionInfo.cs</Link>
     </Compile>
     <Compile Include="Converters\LocalizationConverter.cs" />
+    <Compile Include="Converters\TextCaseConverter.cs" />
     <Compile Include="Services\ILocaleService.cs" />
     <Compile Include="UserControls\ColoredTableView.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
